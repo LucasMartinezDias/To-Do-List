@@ -14,15 +14,15 @@ public class TaskManager {
 
     public void addTask(String description) {
         tasks.add(new Task(nextId++, description));
-        System.out.printf("Tarefa adicionada");
+        System.out.println("Tarefa adicionada");
     }
 
     public void listTasks() {
         if (tasks.isEmpty()) {
-            System.out.printf("Nenhuma tarefa cadastrada");
+            System.out.println("Nenhuma tarefa cadastrada");
         } else {
             for (Task task : tasks) {
-                System.out.printf(task);
+                System.out.println(task);
             }
         }
     }
@@ -30,8 +30,8 @@ public class TaskManager {
     public void markTaskCompleted(int id) {
         for (Task task : tasks) {;
         if (task.getId() ==id) {
-            tasks.markCompleted();
-            System.out.printf("Tarefa marcada como concluída");
+            task.markCompleted();
+            System.out.println("Tarefa marcada como concluída");
             return;
             }
         }

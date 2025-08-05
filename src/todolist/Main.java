@@ -15,8 +15,12 @@ public class Main {
             System.out.println("3 - Marcar como concluída");
             System.out.println("0 - Sair");
             System.out.print("Opção: ");
-            option = scanner.nextInt();
-            scanner.nextLine();
+            String optionInput = scanner.nextLine();
+            try {
+                option = Integer.parseInt(optionInput);
+            } catch (NumberFormatException e) {
+                option = -1;
+            }
             switch (option) {
                 case 1:
                     System.out.print("Descrição da tarefa: ");
@@ -28,8 +32,13 @@ public class Main {
                     break;
                 case 3:
                     System.out.print("ID da tarefa: ");
-                    int id = scanner.nextInt();
-                    manager.markTaskCompleted(id);
+                    String idInput = scanner.nextLine();
+                    try {
+                        int id = Integer.parseInt(idInput);
+                        manager.markTaskCompleted(id);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Por favor, digite um número válido. ");
+                    }
                     break;
                 case 0:
                     System.out.println("Saindo...");
